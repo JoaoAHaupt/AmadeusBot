@@ -1,7 +1,9 @@
 import discord
 import random
-from AmadeusBot.key import token
-from AmadeusBot.src.mozartFacts import facts
+from key import token
+from mozartFacts import facts
+from mozartGifs import gifs
+
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -28,8 +30,12 @@ async def on_message(message):
          
     if message.content.startswith("𝄞facts"):
         randomNumber = random.randint(1, 10)
-
         await message.channel.send(facts[str(randomNumber)])
+        
+    if message.content.startswith("𝄞gif"):
+        randomNumber = random.randint(1, 10)
+        await message.channel.send(gifs[str(randomNumber)])
+
 
     
 client.run(TOKEN)
